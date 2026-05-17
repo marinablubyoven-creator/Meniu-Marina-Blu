@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marina Blu by Oven - Meniu</title>
+  <style>
+    @page {
+      size: A3 landscape;
+      margin: 18mm;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #f4f0e8;
+      color: #1f2937;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .menu {
+      width: 100%;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #0f3b57;
+      padding-bottom: 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 52px;
+      color: #0f3b57;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .header p {
+      margin-top: 8px;
+      font-size: 18px;
+      color: #4b5563;
+      letter-spacing: 2px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .section {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      padding: 22px;
+      background: rgba(255,255,255,0.92);
+      border: 2px solid rgba(15,59,87,0.15);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      min-height: 280px;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .gustari::before {
+      background-image: url('https://images.unsplash.com/photo-1544943910-4c1dc44aab44?q=80&w=1200');
+    }
+
+    .plita::before {
+      background-image: url('https://images.unsplash.com/photo-1559847844-d721426d6edc?q=80&w=1200');
+    }
+
+    .prajit::before {
+      background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1200');
+    }
+
+    .saramura::before {
+      background-image: url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=1200');
+    }
+
+    .platouri::before {
+      background-image: url('https://images.unsplash.com/photo-1559847844-5315695dadae?q=80&w=1200');
+    }
+
+    .carne::before {
+      background-image: url('https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?q=80&w=1200');
+    }
+
+    .ciorbe::before {
+      background-image: url('https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=1200');
+    }
+
+    .garnituri::before {
+      background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200');
+    }
+
+    .salate::before {
+      background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200');
+    }
+
+    .desert::before {
+      background-image: url('https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=1200');
+    }
+
+    .bar::before {
+      background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1200');
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 18px;
+      color: #0f3b57;
+      border-bottom: 2px solid rgba(15,59,87,0.25);
+      padding-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .item-name {
+      font-weight: 600;
+      flex: 1;
+    }
+
+    .price {
+      white-space: nowrap;
+      font-weight: 700;
+      color: #0f3b57;
+    }
+
+    .allergens {
+      font-size: 14px;
+      opacity: 0.85;
+      margin-left: 4px;
+    }
+
+    .legend {
+      margin-top: 35px;
+      padding: 18px;
+      background: rgba(15,59,87,0.08);
+      border-radius: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .legend div {
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .section {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <div class="header">
+      <h1>Marina Blu by Oven</h1>
+      <p>Restaurant cu specific pescăresc</p>
+    </div>
+
+    <div class="grid">
+      <section class="section gustari">
+        <h2 class="section-title">🐟 Gustări</h2>
+
+        <div class="item"><span class="item-name">Icre de Crap 150g <span class="allergens">🌾 🥚 🐟</span></span><span class="price">24 lei</span></div>
+        <div class="item"><span class="item-name">Salată pește marinat 150g <span class="allergens">🐟</span></span><span class="price">24 lei</span></div>
+        <div class="item"><span class="item-name">Macrou afumat 150g <span class="allergens">🐟</span></span><span class="price">28 lei</span></div>
+        <div class="item"><span class="item-name">Zacuscă de pește 150g <span class="allergens">🐟 🌾</span></span><span class="price">28 lei</span></div>
+        <div class="item"><span class="item-name">Creveți picanți 300g <span class="allergens">🦐 🌶️</span></span><span class="price">56 lei</span></div>
+        <div class="item"><span class="item-name">Creveți în sos roșu 300g <span class="allergens">🦐 🌶️</span></span><span class="price">56 lei</span></div>
+        <div class="item"><span class="item-name">Rapane picanți 250g <span class="allergens">🦐 🌶️</span></span><span class="price">48 lei</span></div>
+        <div class="item"><span class="item-name">Rapane în sos roșu 250g <span class="allergens">🦐 🌶️</span></span><span class="price">48 lei</span></div>
+        <div class="item"><span class="item-name">Midii picanți 250g <span class="allergens">🦐 🌶️</span></span><span class="price">38 lei</span></div>
+        <div class="item"><span class="item-name">Midii în sos roșu 250g <span class="allergens">🦐 🌶️</span></span><span class="price">38 lei</span></div>
+      </section>
+
+      <section class="section plita">
+        <h2 class="section-title">⚓ Plită</h2>
+
+        <div class="item"><span class="item-name">Calcan 250g <span class="allergens">🐟</span></span><span class="price">82 lei</span></div>
+        <div class="item"><span class="item-name">Biban 250g <span class="allergens">🐟</span></span><span class="price">59 lei</span></div>
+        <div class="item"><span class="item-name">Dorada 250g <span class="allergens">🐟</span></span><span class="price">59 lei</span></div>
+        <div class="item"><span class="item-name">Zargan 250g <span class="allergens">🐟</span></span><span class="price">59 lei</span></div>
+        <div class="item"><span class="item-name">Palamidă 250g <span class="allergens">🐟</span></span><span class="price">49 lei</span></div>
+        <div class="item"><span class="item-name">Scrumbie 250g <span class="allergens">🐟</span></span><span class="price">59 lei</span></div>
+        <div class="item"><span class="item-name">Frigărui de somon 250g <span class="allergens">🐟 🔥</span></span><span class="price">49 lei</span></div>
+      </section>
+
+      <section class="section prajit">
+        <h2 class="section-title">🍤 Prăjit</h2>
+
+        <div class="item"><span class="item-name">Hamsie 200g <span class="allergens">🐟 🌾</span></span><span class="price">38 lei</span></div>
+        <div class="item"><span class="item-name">Guvide 200g <span class="allergens">🐟 🌾</span></span><span class="price">36 lei</span></div>
+        <div class="item"><span class="item-name">Hanus 200g <span class="allergens">🐟 🌾</span></span><span class="price">36 lei</span></div>
+        <div class="item"><span class="item-name">Crap 250g <span class="allergens">🐟 🌾</span></span><span class="price">49 lei</span></div>
+        <div class="item"><span class="item-name">Calcan 250g <span class="allergens">🐟 🌾</span></span><span class="price">82 lei</span></div>
+        <div class="item"><span class="item-name">Caras 250g <span class="allergens">🐟 🌾</span></span><span class="price">42 lei</span></div>
+      </section>
+
+      <section class="section saramura">
+        <h2 class="section-title">🌊 Saramură</h2>
+
+        <div class="item"><span class="item-name">Calcan 250g <span class="allergens">🐟 🌶️</span></span><span class="price">89 lei</span></div>
+        <div class="item"><span class="item-name">Biban 250g <span class="allergens">🐟 🌶️</span></span><span class="price">66 lei</span></div>
+        <div class="item"><span class="item-name">Crap 250g <span class="allergens">🐟 🌶️</span></span><span class="price">56 lei</span></div>
+        <div class="item"><span class="item-name">Dorada 250g <span class="allergens">🐟 🌶️</span></span><span class="price">66 lei</span></div>
+      </section>
+
+      <section class="section platouri">
+        <h2 class="section-title">🐠 Platouri</h2>
+
+        <div class="item"><span class="item-name">Platou pește 850g <span class="allergens">🐟 🔥</span></span><span class="price">248 lei</span></div>
+        <div class="item"><span class="item-name">Platou fritto misto 850g <span class="allergens">🦐 🐟 🌾</span></span><span class="price">248 lei</span></div>
+        <div class="item"><span class="item-name">Platou mixt 1500g <span class="allergens">🐟 🦐 🌾 🌶️ ⭐</span></span><span class="price">380 lei</span></div>
+      </section>
+
+      <section class="section carne">
+        <h2 class="section-title">🍖 Carne</h2>
+
+        <div class="item"><span class="item-name">Ceafă de porc <span class="allergens">🔥</span></span><span class="price">28 lei</span></div>
+        <div class="item"><span class="item-name">Piept de pui <span class="allergens">🔥</span></span><span class="price">28 lei</span></div>
+        <div class="item"><span class="item-name">Șnițel de pui <span class="allergens">🥚 🌾 🔥</span></span><span class="price">28 lei</span></div>
+      </section>
+
+      <section class="section ciorbe">
+        <h2 class="section-title">🍲 Ciorbe</h2>
+
+        <div class="item"><span class="item-name">Storceag 400ml <span class="allergens">🐟 🥚 🥛</span></span><span class="price">31 lei</span></div>
+        <div class="item"><span class="item-name">Borș de pește 400ml <span class="allergens">🐟</span></span><span class="price">24 lei</span></div>
+        <div class="item"><span class="item-name">Ciorbă de burtă 400ml <span class="allergens">🥚 🥛</span></span><span class="price">24 lei</span></div>
+      </section>
+
+      <section class="section garnituri">
+        <h2 class="section-title">🥔 Garnituri</h2>
+
+        <div class="item"><span class="item-name">Cartofi prăjiți</span><span class="price">12 lei</span></div>
+        <div class="item"><span class="item-name">Cartofi copți cu parmezan <span class="allergens">🥛</span></span><span class="price">18 lei</span></div>
+        <div class="item"><span class="item-name">Cartofi natur <span class="allergens">🥛</span></span><span class="price">12 lei</span></div>
+        <div class="item"><span class="item-name">Orez basmati <span class="allergens">🥛</span></span><span class="price">12 lei</span></div>
+        <div class="item"><span class="item-name">Mămăligă <span class="allergens">🌾</span></span><span class="price">6 lei</span></div>
+        <div class="item"><span class="item-name">Legume pe plită <span class="allergens">🌱</span></span><span class="price">18 lei</span></div>
+        <div class="item"><span class="item-name">Fasole verde <span class="allergens">🌱</span></span><span class="price">12 lei</span></div>
+      </section>
+
+      <section class="section salate">
+        <h2 class="section-title">🥗 Salate</h2>
+
+        <div class="item"><span class="item-name">Salată de varză <span class="allergens">🌱</span></span><span class="price">10 lei</span></div>
+        <div class="item"><span class="item-name">Salată verde <span class="allergens">🌱</span></span><span class="price">12 lei</span></div>
+        <div class="item"><span class="item-name">Salată de sezon <span class="allergens">🌱</span></span><span class="price">12 lei</span></div>
+        <div class="item"><span class="item-name">Salată grecească <span class="allergens">🥛 🌱</span></span><span class="price">23 lei</span></div>
+      </section>
+
+      <section class="section desert">
+        <h2 class="section-title">🍰 Deserturi</h2>
+
+        <div class="item"><span class="item-name">Înghețată asortată <span class="allergens">🥛 🥚</span></span><span class="price">30 lei</span></div>
+        <div class="item"><span class="item-name">Tiramisu <span class="allergens">🌾 🥛 🥚</span></span><span class="price">26 lei</span></div>
+        <div class="item"><span class="item-name">Tortul casei <span class="allergens">🌾 🥛 🥚</span></span><span class="price">26 lei</span></div>
+        <div class="item"><span class="item-name">Cheesecake <span class="allergens">🌾 🥛</span></span><span class="price">26 lei</span></div>
+        <div class="item"><span class="item-name">Cremă de zahăr ars <span class="allergens">🥛 🥚 ⭐</span></span><span class="price">22 lei</span></div>
+      </section>
+
+      <section class="section bar">
+        <h2 class="section-title">🍹 Bar & Băuturi</h2>
+
+        <div class="item"><span class="item-name">Aperol Spritz</span><span class="price">32 lei</span></div>
+        <div class="item"><span class="item-name">Hugo</span><span class="price">32 lei</span></div>
+        <div class="item"><span class="item-name">Mojito <span class="allergens">🌱</span></span><span class="price">32 lei</span></div>
+        <div class="item"><span class="item-name">Marina Blu</span><span class="price">32 lei</span></div>
+        <div class="item"><span class="item-name">Gin Tonic</span><span class="price">26 lei</span></div>
+        <div class="item"><span class="item-name">Espresso</span><span class="price">12 lei</span></div>
+        <div class="item"><span class="item-name">Cappuccino <span class="allergens">🥛</span></span><span class="price">18 lei</span></div>
+        <div class="item"><span class="item-name">Limonadă</span><span class="price">18 lei</span></div>
+        <div class="item"><span class="item-name">La Plaje</span><span class="price">110 lei</span></div>
+        <div class="item"><span class="item-name">Sur Mer</span><span class="price">130 lei</span></div>
+      </section>
+    </div>
+
+    <div class="legend">
+      <div>🐟 Pește</div>
+      <div>🦐 Fructe de mare</div>
+      <div>🌾 Gluten</div>
+      <div>🥚 Ou</div>
+      <div>🥛 Lactate</div>
+      <div>🌶️ Picant</div>
+      <div>🌱 Vegetarian</div>
+      <div>🔥 Preparat la grill</div>
+    </div>
+
+    <div class="footer">
+      Marina Blu by Oven • Specific pescăresc • Toate prețurile sunt exprimate în lei
+    </div>
+  </div>
+</body>
+</html>
